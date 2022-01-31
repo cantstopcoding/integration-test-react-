@@ -1,38 +1,13 @@
 import React, { useState } from "react";
+import Form from "./Form";
 
 function App() {
-  const [todo, setTodo] = useState("");
   const [todoList, setTodoList] = useState([]);
 
-  const handleChange = (e) => {
-    setTodo(e.target.value);
-  };
-
-  const addTask = () => {
-    if (todo !== "") {
-      const taskDetails = {
-        value: todo,
-      };
-
-      setTodoList([...todoList, taskDetails]);
-      setTodo("");
-    }
-  };
-
   return (
-    <div>
+    <div className="App">
       <div className="todo">
-        <input
-          type="text"
-          name="text"
-          id="text"
-          onChange={(e) => handleChange(e)}
-          placeholder="Add todo here..."
-        />
-
-        <button className="add-btn" onClick={addTask}>
-          Add
-        </button>
+        <Form todoList={todoList} setTodoList={setTodoList} />
         <br />
 
         {todoList !== [] ? (
