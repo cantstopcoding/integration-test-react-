@@ -1,8 +1,16 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { fireEvent, render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
+test("name added once submit button is clicked", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  const inputElement = screen.getByPlaceholderText(/Add todo here.../i);
+  const submitButton = screen.getByRole("button", {
+    name: /add/i,
+  });
+  fireEvent.change(inputElement, { target: { value: "Meditate" } });
+  fireEvent.click(submitButton);
+
+  const divElement = screen.getByText(/Meditate/i);
+  expect(divElement).toBeInTheDocument();
 });
