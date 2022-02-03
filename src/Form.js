@@ -19,6 +19,7 @@ const Form = ({ todoList, setTodoList }) => {
   };
   return (
     <>
+      <h1>Create To-do</h1>
       <input
         type="text"
         name="text"
