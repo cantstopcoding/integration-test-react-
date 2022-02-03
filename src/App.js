@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Form from "./Form";
 import List from "./List";
 
-function App() {
+const App = () => {
   const [todoList, setTodoList] = useState([]);
 
   return (
@@ -14,6 +14,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;
